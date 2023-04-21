@@ -2,6 +2,7 @@
 
 import { ReactElement, useCallback, useEffect, useState } from "react";
 import {IoMdClose} from 'react-icons/io'
+import Buttton from "../Button/Buttton";
 
 
 interface ModalsProps{
@@ -14,7 +15,7 @@ interface ModalsProps{
     actionLable:string;
     dsisable?:boolean;
     secondaryAction?: ()=>void;
-    secondaryLabel?:string;
+    secondaryActionLabel?:string;
 
 }
 
@@ -26,7 +27,7 @@ const Modal: React.FC<ModalsProps> = ({
     onSubmit,
     dsisable,
     secondaryAction,
-    secondaryLabel,
+    secondaryActionLabel,
     title,
     body,
     footer,
@@ -81,10 +82,30 @@ onSubmit();
                                         {/*Header */}
                                         <div className=" flex items-center p-6 rounded-t justify-center relative border-b-[1px]">
                                         
-                                        <button className="p-1 border-0 hover:opacity-70 transition absolute left-9">
+                                        <button onClick={handleClose} className="p-1 border-0 hover:opacity-70 transition absolute left-9">
                                             <IoMdClose size ={18}/>
 
                                         </button>
+                                        <div className="text-lg font-semibold">
+                                           
+                                            {title}
+                                            
+                                        </div>
+
+                                        </div>
+                                        {/* Body*/}
+                                        <div className=" relative p-6 flex-auto">
+                                                {body}
+                                        </div>
+                                        {/* FOoter*/}
+                                        <div className="flex flex-col gap-2 p-6">
+                                            <div className="flex flex-row items-center gap-4 w-full">
+                                                {secondaryAction && secondaryActionLabel &&(<Buttton outline disabled={dsisable} label={secondaryActionLabel} onClick={handleSecondaryAction}/>
+                                                )}
+                                            
+                                                <Buttton  disabled={dsisable} label={actionLable} onClick={hanleSubmit}/>
+
+                                            </div>
 
                                         </div>
                             </div>

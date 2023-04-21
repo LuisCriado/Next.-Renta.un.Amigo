@@ -1,14 +1,19 @@
 import ClientOnly from "./components/ClientOnly"
-import Modal from "./components/Modal"
+
+import RegisterModal from "./components/Modals/RegisterModal"
 import Navbar from "./components/navbar/Navbar"
 
 
-export default function Home() {
+export default function Home({children}) {
   return (
     <>
-    <Modal isOpen={true} />
-    <Navbar/>
+
     
+    <ClientOnly>
+     <RegisterModal/>
+    <Navbar/>
+    </ClientOnly>
+    {children}
     
     
     </>
