@@ -106,6 +106,7 @@ onSubmit();
                                                 <Buttton  disabled={dsisable} label={actionLable} onClick={hanleSubmit}/>
 
                                             </div>
+                                            {footer}
 
                                         </div>
                             </div>

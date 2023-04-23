@@ -1,3 +1,4 @@
+import ToasterProvider from "@/providers/ToasterProvider"
 import ClientOnly from "./components/ClientOnly"
 
 import RegisterModal from "./components/Modals/RegisterModal"
@@ -10,6 +11,7 @@ export default function Home({children}) {
 
     
     <ClientOnly>
+      <ToasterProvider/>
      <RegisterModal/>
     <Navbar/>
     </ClientOnly>
