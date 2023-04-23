@@ -9,6 +9,7 @@ import useRegisterModal from '@/hooks/useRegisterModal';
 import { error } from 'console';
 import Modal from './Modal';
 import Heading from '../Heading/Heading';
+import Inputs from '../inputs/Inputs';
 
      //creacion del Login 
 const RegisterModal = () => {
@@ -46,8 +47,12 @@ const RegisterModal = () => {
  } 
 
  const bodyContent = (
-    <div className='flex flex-col- gap-4 '>
-            <Heading/>
+    <div className='flex flex-col gap-4 '>
+            <Heading  title='Bienvenido a Alquila Amigos' subtitle='Create una cuenta' />
+            <Inputs id='email' label='Email' disabled={isLoading} register={register} errors={errors} required/>
+            <Inputs id='name' label='Name' disabled={isLoading} register={register} errors={errors} required/>
+            <Inputs id='password' type='password' label='Password' disabled={isLoading} register={register} errors={errors} required/>
+            
     </div>
  )
 
